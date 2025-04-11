@@ -11,14 +11,9 @@ import org.testng.annotations.Test;
 /**
  * Класс для тестирования различных сценариев входа в систему с использованием разных наборов данных.
  */
-
 public class DataProviderTest extends BaseTest{
 
-    /**
-     * Тест для проверки авторизации с разными данными.
-     */
-    @Test(dataProvider = "testData", dataProviderClass = DataProviderExample.class,
-            description = "Проверка входа с различными комбинациями данных")
+    @Test(dataProvider = "testData", dataProviderClass = DataProviderExample.class, description = "Проверка входа с различными комбинациями данных")
     @Description("Тест проверяет вход в систему с различными комбинациями логина и пароля")
     @Severity(SeverityLevel.CRITICAL)
     public void testLoginWithDataProvider(String username, String password, boolean expectedResult) {
