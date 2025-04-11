@@ -23,10 +23,10 @@ public class WidgetCreationTest extends BaseTest {
         DashboardPage dashboardPage = new DashboardPage(getDriver());
         dashboardPage.createNewDashboard("My New Dashboard", "Test Description");
 
-        //тута переход или обновление стариницы
-
         WidgetPage widgetPage = new WidgetPage(getDriver());
-        widgetPage.clickDashboardName();
+        widgetPage.clickButtonFilters()
+                .clickButtonDashboard()
+                .clickDashboardName();
 
     }
 }

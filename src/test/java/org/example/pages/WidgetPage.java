@@ -42,6 +42,12 @@ public class WidgetPage {
     @FindBy(css = ".widgetHeader__widget-name-block--AOAHS")
     private WebElement createdWidgetName;
 
+    @FindBy(css = "a[href='#default_personal/filters']")
+    private WebElement buttonFilters;
+
+    @FindBy(css = "a[href='#default_personal/dashboard']")
+    private WebElement buttonDashboard;
+
     public WidgetPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -92,5 +98,15 @@ public class WidgetPage {
     public boolean isWidgetCreatedWithName(String expectedName) {
         return wait.until(ExpectedConditions.visibilityOf(createdWidgetName))
                 .getText().equals(expectedName);
+    }
+
+    public WidgetPage clickButtonFilters() {
+        wait.until(ExpectedConditions.elementToBeClickable(buttonFilters)).click();
+        return this;
+    }
+
+    public WidgetPage clickButtonDashboard() {
+        wait.until(ExpectedConditions.elementToBeClickable(buttonDashboard)).click();
+        return this;
     }
 }
